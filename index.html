@@ -68,7 +68,7 @@ a{color:inherit}
 .maplayout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
 .maplayout svg{display:block;width:100%;height:auto}
 .zone-label{font-size:24px;font-weight:900;fill:#fff}
-.bridge-label{font-size:18px;font-weight:900;fill:#e4d8f2;letter-spacing:.06em}
+.bridge-label{font-size:16px;font-weight:900;fill:#e4d8f2;letter-spacing:.06em}
 .legend{display:grid;grid-template-columns:1fr;gap:9px}
 .legend div{padding:11px 13px;background:#221a38;border:1px solid #382c52;border-radius:12px;font-size:13px}
 .legend .key{font-weight:900;margin-right:7px}
@@ -206,8 +206,9 @@ a{color:inherit}
     <div class="maplayout">
       <div><svg viewBox="0 0 720 498" role="img" aria-label="Da Nang A-H zone map">
       <rect x="0" y="0" width="720" height="498" rx="22" fill="#0d1219"/>
-      <rect x="315" y="28" width="90" height="442" rx="18" fill="#132a3c" stroke="#27475c" stroke-width="2"/>
-      <text x="360" y="50" text-anchor="middle" font-size="18" fill="#6f8da8" letter-spacing=".14em">HÀN RIVER</text>
+      <rect x="306" y="28" width="106" height="442" rx="18" fill="#132a3c" stroke="#27475c" stroke-width="2"/>
+      <text x="360" y="56" text-anchor="middle" font-size="16" fill="#6f8da8" letter-spacing=".14em">HÀN RIVER</text>
+      <text x="360" y="80" text-anchor="middle" font-size="16" fill="#6f8da8" letter-spacing=".14em">韓江</text>
       <g opacity=".95">
         <rect x="24" y="28" width="270" height="88" rx="18" fill="#121a22" stroke="#293541"/>
         <rect x="426" y="28" width="270" height="88" rx="18" fill="#121a22" stroke="#293541"/>
@@ -219,18 +220,21 @@ a{color:inherit}
         <rect x="426" y="382" width="270" height="88" rx="18" fill="#0f171e" stroke="#293541"/>
       </g>
       <g>
-        <text x="158" y="72" text-anchor="middle" class="zone-label">A</text><text x="562" y="72" text-anchor="middle" class="zone-label">H</text>
-        <text x="158" y="190" text-anchor="middle" class="zone-label">B</text><text x="562" y="190" text-anchor="middle" class="zone-label">E</text>
-        <text x="158" y="308" text-anchor="middle" class="zone-label">C</text><text x="562" y="308" text-anchor="middle" class="zone-label">F</text>
-        <text x="158" y="426" text-anchor="middle" class="zone-label">D</text><text x="562" y="426" text-anchor="middle" class="zone-label">G</text>
+        <text x="158" y="80" text-anchor="middle" class="zone-label">A</text><text x="562" y="80" text-anchor="middle" class="zone-label">H</text>
+        <text x="158" y="198" text-anchor="middle" class="zone-label">B</text><text x="562" y="198" text-anchor="middle" class="zone-label">E</text>
+        <text x="158" y="316" text-anchor="middle" class="zone-label">C</text><text x="562" y="316" text-anchor="middle" class="zone-label">F</text>
+        <text x="158" y="434" text-anchor="middle" class="zone-label">D</text><text x="562" y="434" text-anchor="middle" class="zone-label">G</text>
       </g>
       <g>
         <line x1="25" y1="131" x2="695" y2="131" stroke="#59e4c2" stroke-width="3"/><line x1="25" y1="249" x2="695" y2="249" stroke="#7aa7ff" stroke-width="3"/><line x1="25" y1="367" x2="695" y2="367" stroke="#ff7ea8" stroke-width="3"/>
-        <text x="360" y="125" text-anchor="middle" class="bridge-label">1st · HÀN BRIDGE</text>
-        <text x="360" y="243" text-anchor="middle" class="bridge-label">2nd · DRAGON BRIDGE</text>
-        <text x="360" y="361" text-anchor="middle" class="bridge-label">3rd · CẦU TRẦN THỊ LÝ</text>
+        <text x="360" y="125" text-anchor="middle" class="bridge-label">HÀN BRIDGE</text>
+        <text x="360" y="150" text-anchor="middle" class="bridge-label">韓江橋</text>
+        <text x="360" y="243" text-anchor="middle" class="bridge-label">DRAGON BRIDGE</text>
+        <text x="360" y="268" text-anchor="middle" class="bridge-label">龍橋</text>
+        <text x="360" y="361" text-anchor="middle" class="bridge-label">CẦU TRẦN THỊ LÝ</text>
+        <text x="360" y="386" text-anchor="middle" class="bridge-label">陳氏理橋</text>
       </g>
-      <text x="50" y="475" font-size="18" fill="#6d7a89">WEST BANK</text><text x="670" y="475" text-anchor="end" font-size="18" fill="#6d7a89">EAST BANK</text>
+      <text x="50" y="490" font-size="18" fill="#6d7a89">WEST BANK</text><text x="670" y="490" text-anchor="end" font-size="18" fill="#6d7a89">EAST BANK</text>
     </svg></div>
     <div class="legend">
       <div><span class="key zone-A">A</span>西岸・韓江橋以北<small>LUK LAK、Madame Lân、Bunny Bar、New Phương Đông</small></div>
