@@ -6,94 +6,184 @@
 <title>峴港行程｜9/14-9/17</title>
 <style>
 :root{
-  --bg:#071018; --panel:#0e1821; --panel2:#121f2a; --line:#243645;
-  --text:#eef6fb; --muted:#91a3b3; --soft:#bfd0dc;
-  --cyan:#55d8ff; --mint:#5ee6b2; --yellow:#ffd166; --orange:#ff9f5b;
-  --pink:#ff6f9f; --violet:#a78bfa; --blue:#6ea8ff;
-  --river:#0c3141; --shadow:0 20px 50px rgba(0,0,0,.4); --r:18px;
+  --bg:#071018;--card:#0e1821;--ink:#eef6fb;--muted:#91a3b3;--line:#243645;
+  --accent:#55d8ff;--accent2:#ffd166;--blue:#6ea8ff;
+  --yellow:#ffd166;--mint:#5ee6b2;--orange:#ff9f5b;--pink:#ff6f9f;--violet:#a78bfa;
+  --shadow:0 20px 50px rgba(0,0,0,.45)
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0; color:var(--text); line-height:1.65;
-  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",sans-serif;color:var(--ink);line-height:1.6;
   background:
     radial-gradient(circle at 10% 0%,rgba(85,216,255,.11),transparent 28%),
     radial-gradient(circle at 90% 12%,rgba(255,111,159,.09),transparent 25%),
     radial-gradient(circle at 50% 100%,rgba(167,139,250,.08),transparent 30%),
     var(--bg);
-}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1100px;margin:0 auto;padding:22px}
-header{padding:22px 0 10px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end}
-.eyebrow{font-size:11px;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;font-weight:900}
-h1{font-size:clamp(30px,5vw,54px);line-height:1.04;margin:.2em 0 .16em;letter-spacing:-.045em}
-.subtitle{color:var(--muted);max-width:760px;font-size:13px}
-.pill{border:1px solid #365061;background:linear-gradient(135deg,#102431,#151d29);padding:8px 12px;border-radius:999px;color:#d9e8f2;font-size:11px;white-space:nowrap}
-nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 18px;position:sticky;top:0;background:linear-gradient(var(--bg) 72%,transparent);z-index:10}
-nav a{padding:7px 11px;border:1px solid #2b4050;border-radius:999px;color:#b9cbd7;font-size:11px;background:rgba(10,20,28,.92);backdrop-filter:blur(8px)}
-nav a:hover{border-color:var(--cyan);color:#fff}
-.card{background:linear-gradient(150deg,rgba(17,30,40,.98),rgba(9,18,25,.98));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
-.card-inner{padding:18px}
-.section-title{font-size:18px;margin:0 0 8px;letter-spacing:-.02em}
-.mini{font-size:11px;color:var(--muted)}
-/* simplified zone map */
-.zone-map{padding:13px}
-.zone-map svg{display:block;width:100%;max-width:620px;height:auto;margin:auto}
+  background-attachment:fixed}
+a{color:inherit}
+.wrap{max-width:1120px;margin:auto;padding:24px}
+.hero{background:linear-gradient(135deg,#0c3b47,#102740);border:1px solid #1d4a5c;color:#fff;border-radius:24px;padding:32px;box-shadow:var(--shadow)}
+.hero h1{margin:0 0 8px;font-size:34px;letter-spacing:-.02em}
+.hero p{margin:0;color:#b9d2df}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:7px 11px;border-radius:999px;font-size:14px;color:#dcecf5}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.summary{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);transition:.15s}
+.summary:hover{border-color:var(--accent);transform:translateY(-2px)}
+.summary b{display:block;margin-bottom:6px;color:var(--accent)}
+.summary small{color:var(--muted)}
+.day{margin:22px 0;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:16px}
+.dayhead{padding:22px 24px}
+.daykicker{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.daytitle{font-size:24px;font-weight:750;letter-spacing:-.02em;margin-top:3px}
+.theme{color:var(--muted);margin-top:4px}
+.daybody{padding:22px 24px}
+.route{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 14px;background:#0a151d;border:1px dashed #355161;border-radius:14px;margin-bottom:18px}
+.route em{font-style:normal;font-size:12px;color:var(--muted);letter-spacing:.06em;margin-right:2px}
+.stop{background:#101c25;border:1px solid #2a3c49;border-radius:10px;padding:7px 10px;font-size:13px;font-weight:700}
+.stop.tbd{color:var(--muted);font-weight:400}
+.arrow{color:#5c7182}
+.timeline{display:grid;grid-template-columns:104px 1fr;gap:0;border-top:1px solid var(--line)}
+.row{display:contents}
+.time,.event{padding:14px 0;border-bottom:1px solid var(--line)}
+.time{font-weight:700;color:var(--accent);padding-right:12px;white-space:nowrap}
+.time::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin:0 6px 2px 0;box-shadow:0 0 10px rgba(85,216,255,.65)}
+.time.cont{color:#4d6272}
+.time.cont::before{display:none}
+.type{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.event b{display:block;margin-top:2px}
+.meta{color:var(--muted);font-size:13px;margin-top:3px}
+.links{margin-top:7px;line-height:2.1}
+.link{display:inline-block;font-size:13px;color:var(--blue);text-decoration:none}
+.link:hover{text-decoration:underline;color:#9cc6ff}
+.links .link:not(:last-child)::after{content:"·";margin:0 6px 0 8px;color:#5a6d7c}
+.zone-tag{display:inline-block;vertical-align:2px;margin-left:7px;font-size:10px;font-weight:800;padding:3px 7px;border-radius:999px;background:#0d1921;border:1px solid currentColor;text-decoration:none;white-space:nowrap}
+.zone-A{color:var(--yellow)}.zone-B{color:var(--accent)}.zone-C{color:var(--mint)}.zone-D{color:var(--violet)}
+.zone-E{color:var(--orange)}.zone-F{color:var(--pink)}.zone-G{color:#79b6ff}.zone-H{color:#d2a8ff}
+.notes{margin-top:18px;padding:14px 16px;background:#1b180e;border:1px solid #4a3d18;border-radius:14px;color:#d8caa4;font-size:14px}
+.notes b{color:var(--accent2)}
+.zonemap svg{display:block;width:100%;max-width:620px;height:auto;margin:auto}
 .zone-label{font-size:20px;font-weight:900;fill:#fff}
 .bridge-label{font-size:12px;font-weight:900;fill:#d3e7f2;letter-spacing:.06em}
-.legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;justify-content:center}
-.legend span{padding:6px 8px;border:1px solid #2b4050;border-radius:999px;background:#0b151d;font-size:10px;color:#bdced9}
-.info{font-size:11px;color:#a5b6c3;margin-top:9px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.day{margin:24px 0}
-.day-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 18px 11px}
-.day-kicker{font-size:10px;color:var(--cyan);font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-h2{margin:.12em 0;font-size:28px;letter-spacing:-.035em}
-.day-zone{font-weight:900;font-size:13px;padding:7px 10px;border-radius:10px;background:#0b141c;border:1px solid #2b4050;color:#edf7ff}
-.route-strip{margin:0 18px 14px;padding:11px 13px;border:1px dashed #355161;border-radius:12px;color:#c9d9e4;background:#0a151d;font-size:11px}
-.timeline{padding:0 18px 18px;display:grid;gap:9px}
-.stop{display:grid;grid-template-columns:66px 1fr auto;gap:12px;align-items:start;padding:13px;background:linear-gradient(145deg,#0c171f,#0a131a);border:1px solid #213441;border-radius:14px}
-.time{font-weight:950;font-size:12px;color:#f4fbff;white-space:nowrap}
-.time::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cyan);margin:0 6px 1px 0;box-shadow:0 0 10px rgba(85,216,255,.65)}
-.type{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:900}
-.stop h3{margin:2px 0 3px;font-size:15px}.stop p{margin:0;color:#96a9b7;font-size:11px}
-.zone-tag{font-size:10px;font-weight:800;padding:4px 7px;border-radius:999px;white-space:nowrap}
-.zone-A,.zone-B,.zone-C,.zone-D,.zone-E,.zone-F,.zone-G,.zone-H{background:#0d1921;border:1px solid currentColor}
-.zone-A{color:var(--yellow)} .zone-B{color:var(--cyan)} .zone-C{color:var(--mint)} .zone-D{color:var(--violet)}
-.zone-E{color:var(--orange)} .zone-F{color:var(--pink)} .zone-G{color:#79b6ff} .zone-H{color:#d2a8ff}
-.options{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
-.place{display:inline-flex;align-items:center;gap:5px;padding:6px 8px;border:1px solid #2a3c49;border-radius:9px;background:#101c25;font-size:11px;color:#e6f0f5;transition:.15s}
-.place:hover{border-color:var(--cyan);transform:translateY(-1px);background:#12232e}
-.place::after{content:"↗";font-size:10px;color:#7f9aaa}
-.optional{margin-top:26px}.optional .day-head{border-bottom:1px solid var(--line)}
-.note{border-left:3px solid var(--yellow);padding:9px 11px;background:#1b180e;color:#d8caa4;border-radius:10px;font-size:11px;margin-top:9px}
-.footer{padding:22px 0 46px;color:#667985;font-size:10px}
-.code-note{display:inline-block;padding:4px 7px;border-radius:7px;background:#0c1820;border:1px solid #2b4050;color:#cfe3ed;margin-right:5px}
-@media(max-width:760px){
-  .wrap{padding:14px}.grid2{grid-template-columns:1fr}.stop{grid-template-columns:60px 1fr}.zone-tag{grid-column:2;justify-self:start}.day-head{flex-direction:column}.pill{display:none}
+.legend{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+.legend div{padding:11px 13px;background:#0b151d;border:1px solid #22333f;border-radius:12px;font-size:13px}
+.legend .key{font-weight:900;margin-right:7px}
+.legend small{color:var(--muted);display:block;margin-top:2px}
+.legend .empty small{color:#5c6f7d}
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:24px 0 8px}
+.time.z{font-weight:900}
+.time.z::before{background:currentColor;box-shadow:none}
+@media(max-width:850px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .timeline{grid-template-columns:84px 1fr}
+  .legend{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .wrap{padding:14px}
+  .hero{padding:24px 20px}.hero h1{font-size:28px}
+  .grid{grid-template-columns:1fr 1fr;gap:9px}.summary{padding:12px}
+  .daybody,.dayhead{padding:18px}
+  .daytitle{font-size:21px}
+  .route{overflow-x:auto;flex-wrap:nowrap}.stop{white-space:nowrap}
+  .timeline{grid-template-columns:74px 1fr}
+  .time,.event{padding:15px 0}
+  .links{line-height:2.4;margin-top:9px}
+  .links .link:not(:last-child)::after{margin:0 5px 0 7px}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-<header>
-  <div>
-    <div class="eyebrow">DA NANG · 09/14 — 09/17</div>
-    <h1>峴港行程</h1>
-    <div class="subtitle">以市區三座橋與韓江為界，分成 A～H 八個區域來快速辨識位置</div>
+<section class="hero">
+  <h1>🇻🇳 峴港行程</h1>
+  <p>9/14（一）～9/17（四）｜以市區三座橋與韓江為界，分成 A～H 八個區域來快速辨識位置</p>
+  <div class="chips"><span class="chip">🏖️ 美溪海灘</span><span class="chip">☕ 咖啡巡禮</span><span class="chip">🍸 酒吧巡禮</span><span class="chip">🧖 越式洗頭・Spa</span><span class="chip">🍤 兩場聚餐</span><span class="chip">🛍️ Vincom 採買</span></div>
+</section>
+
+<div class="grid">
+  <a class="summary" href="#d1"><b>9/14</b><small>抵達・Spa・PPA 聚餐</small></a>
+  <a class="summary" href="#d2"><b>9/15</b><small>海灘・咖啡・酒吧</small></a>
+  <a class="summary" href="#d3"><b>9/16</b><small>漢市場・市中心・PP 聚餐</small></a>
+  <a class="summary" href="#d4"><b>9/17</b><small>Shopping・Bếp Cuốn</small></a>
+</div>
+
+<section class="day" id="d1">
+  <div class="dayhead">
+    <div class="daytitle">DAY 1｜9/14（一）</div>
+    <div class="theme">🛬 抵達峴港 → 越式洗頭 / Spa 初體驗 → PPA 部門聚餐</div>
   </div>
-</header>
-
-<nav>
-  <a href="#map">分區</a><a href="#d1">D1</a><a href="#d2">D2</a><a href="#d3">D3</a><a href="#d4">D4</a><a href="#optional">OPTIONAL</a>
-</nav>
-
-<section id="map" class="hero-grid">
-  <div class="card zone-map">
-    <div class="card-inner" style="padding-bottom:6px">
-      <h2 class="section-title">分區地圖</h2>
+  <div class="daybody">
+    <div class="timeline">
+      <div class="row"><div class="time">14:00</div><div class="event"><div class="type">SPA</div><b>越式洗頭／Spa<a class="zone-tag zone-E" href="#map">E</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Golden+Lotus+Da+Nang">📍 Golden Lotus</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Lamer+Spa+Da+Nang">📍 Lamer Spa</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Sum+Spa+Da+Nang">📍 Sum Spa</a></div></div></div>
+      <div class="row"><div class="time">18:00</div><div class="event"><div class="type">DINNER</div><b>PPA 部門聚餐<a class="zone-tag zone-E" href="#map">E</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Moc+Quan+Seafood+Da+Nang%2C+26+To+Hien+Thanh">📍 Mộc Quán Seafood</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">BAR</div><b>BAR · E<a class="zone-tag zone-E" href="#map">E</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Firebirds+Da+Nang">📍 Firebirds</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ONE+bar+Da+Nang">📍 ONE bar</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Zotopia+Da+Nang">📍 Zotopia</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=YOKO+Da+Nang+bar">📍 YOKO</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">BAR</div><b>BAR · F<a class="zone-tag zone-F" href="#map">F</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bar+Flow+Da+Nang">📍 Bar Flow</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=IDLE+place+Da+Nang">📍 IDLE place</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Black+Wolf+Da+Nang">📍 Black Wolf</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Koto+Club+Da+Nang">📍 Koto Club</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">BAR</div><b>BAR · H<a class="zone-tag zone-H" href="#map">H</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Ciela+Sky+Bar+Da+Nang">📍 Ciela Sky Bar</a></div></div></div>
     </div>
+  </div>
+</section>
+
+<section class="day" id="d2">
+  <div class="dayhead">
+    <div class="daytitle">DAY 2｜9/15（二）</div>
+    <div class="theme">🏖️ 海灘 → 咖啡巡禮 → 酒吧巡禮</div>
+  </div>
+  <div class="daybody">
+    <div class="timeline">
+      <div class="row"><div class="time">13:00</div><div class="event"><div class="type">VIEW</div><b>My Khe Beach<a class="zone-tag zone-E" href="#map">E</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=My+Khe+Beach+Da+Nang">📍 My Khe Beach</a></div></div></div>
+      <div class="row"><div class="time">14:30</div><div class="event"><div class="type">CAFE</div><b>MAY COFFEE<a class="zone-tag zone-E" href="#map">E</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=MAY+COFFEE+Da+Nang">📍 MAY COFFEE</a></div></div></div>
+      <div class="row"><div class="time">15:30</div><div class="event"><div class="type">CAFE</div><b>Vietnamese Coffee<a class="zone-tag zone-G" href="#map">G</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=XLIII+Specialty+Da+Nang">📍 XLIII Specialty</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Puna+Specialty+Da+Nang">📍 Puna Specialty</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=The+Cups+Coffee+Da+Nang">📍 The Cups</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Nirva+Coffee+Da+Nang">📍 Nirva</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Passion+Coffee+Da+Nang">📍 Passion</a></div></div></div>
+      <div class="row"><div class="time">18:00</div><div class="event"><div class="type">DINNER</div><b>Vietnamese Cuisine<a class="zone-tag zone-G" href="#map">G</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Daily+Cuisine+Da+Nang">📍 Vietnam Daily Cuisine</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Epic+Vietnamese+Bistro+Da+Nang">📍 Epic Vietnamese Bistro</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">DINNER</div><b>Foreign Cuisine<a class="zone-tag zone-G" href="#map">G</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=The+Nomad+Kitchen+Da+Nang">📍 The Nomad Kitchen</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Little+Georgia+Da+Nang">📍 Little Georgia</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Trattoria+da+Stefano+Da+Nang">📍 Trattoria da Stefano</a></div></div></div>
+      <div class="row"><div class="time">20:00</div><div class="event"><div class="type">HEAD SPA</div><b>LUXURY BARBER<a class="zone-tag zone-G" href="#map">G</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/place/LUXURY+%EC%9D%B4%EB%B0%9C%EC%86%8C+%E9%AB%98%E7%AB%AF%E8%B6%8A%E5%8D%97%E5%B8%9D%E7%8E%8B%E6%B4%97%E5%A4%B4/@16.0421712,108.2455885,16z/data=!3m1!4b1!4m6!3m5!1s0x314217ea0815c4e1:0xbc31d8866e397ba3!8m2!3d16.0421712!4d108.2481634!16s%2Fg%2F11ycsqgc6y">📍 LUXURY Spa</a></div></div></div>
+      <div class="row"><div class="time">22:00</div><div class="event"><div class="type">BAR</div><b>An Thuong Bar<a class="zone-tag zone-G" href="#map">G</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Ket+Fai+Da+Nang">📍 Ket Fai</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Section+30+Da+Nang">📍 Section 30</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=SAGA+Da+Nang+bar">📍 SAGA</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tipsy+Night+Bar+Da+Nang">📍 Tipsy Night Bar</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d3">
+  <div class="dayhead">
+    <div class="daytitle">DAY 3｜9/16（三）</div>
+    <div class="theme">🛍️ 漢市場 → 峴港市中心 → PP 公司聚餐</div>
+  </div>
+  <div class="daybody">
+    <div class="route"><em>區域移動</em><span class="stop">B</span><span class="arrow">→</span><span class="stop">E</span></div>
+    <div class="timeline">
+      <div class="row"><div class="time">10:00</div><div class="event"><div class="type">SPOT</div><b>Han Market<a class="zone-tag zone-B" href="#map">B</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Han+Market+Da+Nang%2C+119+Tran+Phu">📍 Han Market</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">CAFE</div><b>Vietnamese Coffee<a class="zone-tag zone-B" href="#map">B</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Me+Coffee+Da+Nang">📍 Me Coffee</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Trinh+Ca+Phe+Da+Nang">📍 Trinh ca phe</a></div></div></div>
+      <div class="row"><div class="time">13:00</div><div class="event"><div class="type">LUNCH</div><b>Pizza 4P’s<a class="zone-tag zone-B" href="#map">B</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pizza+4Ps+Hoang+Van+Thu+Da+Nang">📍 Pizza 4P’s</a></div></div></div>
+      <div class="row"><div class="time">14:30</div><div class="event"><div class="type">SPOT</div><b>Da Nang Cathedral<a class="zone-tag zone-B" href="#map">B</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Da+Nang+Cathedral+156+Tran+Phu">📍 Da Nang Cathedral</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bach+Dang+Street+Da+Nang">📍 Bạch Đằng Street Walking</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Da+Nang+Museum+of+Cham+Sculpture">📍 Museum</a></div></div></div>
+      <div class="row"><div class="time">15:30</div><div class="event"><div class="type">CAFE / SPA</div><b>Relax<a class="zone-tag zone-B" href="#map">B</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=The+Local+Beans+Da+Nang">📍 The Local Beans</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Golden+Lotus+Oriental+Organic+Spa+Da+Nang">📍 Golden Lotus</a></div></div></div>
+      <div class="row"><div class="time">18:00</div><div class="event"><div class="type">DINNER</div><b>PP 公司聚餐<a class="zone-tag zone-E" href="#map">E</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Brilliant+Seafood+178+Ho+Nghinh+Da+Nang">📍 Brilliant Seafood</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">BAR</div><b>Bar · Beach<a class="zone-tag zone-E" href="#map">E</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=The+Roof+Da+Nang">📍 The Roof</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Lounge+Beach+Da+Nang">📍 Lounge Beach</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Harbour+Da+Nang+bar">📍 Harbour</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Esco+Beach+Da+Nang">📍 Esco</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Chicland+Da+Nang">📍 Chicland</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d4">
+  <div class="dayhead">
+    <div class="daytitle">DAY 4｜9/17（四）</div>
+    <div class="theme">🛍️ Shopping</div>
+  </div>
+  <div class="daybody">
+    <div class="route"><em>區域移動</em><span class="stop">H</span><span class="arrow">→</span><span class="stop tbd">未定</span><span class="arrow">→</span><span class="stop">F</span></div>
+    <div class="timeline">
+      <div class="row"><div class="time">10:00</div><div class="event"><div class="type">SPOT</div><b>Vincom Plaza<a class="zone-tag zone-H" href="#map">H</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Vincom+Plaza+Da+Nang%2C+910A+Ngo+Quyen">📍 Vincom Plaza</a></div></div></div>
+      <div class="row"><div class="time">12:00</div><div class="event"><div class="type">LUNCH</div><b>Be Man Da Nang Seafood<a class="zone-tag zone-H" href="#map">H</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Be+Man+Da+Nang+seafood">📍 Be Man</a></div></div></div>
+      <div class="row"><div class="time">18:00</div><div class="event"><div class="type">DINNER</div><b>Bếp Cuốn Đà Nẵng<a class="zone-tag zone-F" href="#map">F</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bep+Cuon+Da+Nang%2C+31-33+Tran+Bach+Dang">📍 Bếp Cuốn Đà Nẵng</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">BAR</div><b>Bar · E<a class="zone-tag zone-F" href="#map">F</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Firebirds+Da+Nang">📍 Firebirds</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ONE+bar+Da+Nang">📍 ONE bar</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Zotopia+Da+Nang">📍 Zotopia</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=YOKO+Da+Nang+bar">📍 YOKO</a></div></div></div>
+      <div class="row"><div class="time cont">—</div><div class="event"><div class="type">BAR</div><b>Bar · F<a class="zone-tag zone-F" href="#map">F</a></b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bar+Flow+Da+Nang">📍 Bar Flow</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=IDLE+place+Da+Nang">📍 IDLE place</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Black+Wolf+Da+Nang">📍 Black Wolf</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Koto+Club+Da+Nang">📍 Koto Club</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="day zonemap" id="map">
+  <div class="dayhead">
+    <div class="daykicker">REFERENCE</div>
+    <div class="daytitle">分區地圖</div>
+    <div class="theme">🗺️ 韓江分東西兩岸，三座橋由北至南再切出四段，合起來就是 A～H 八區</div>
+  </div>
+  <div class="daybody">
     <svg viewBox="0 0 720 520" role="img" aria-label="Da Nang A-H zone map">
       <rect x="0" y="0" width="720" height="520" rx="22" fill="#0d1219"/>
       <rect x="315" y="12" width="90" height="352" rx="18" fill="#132a3c" stroke="#27475c" stroke-width="2"/>
@@ -122,73 +212,40 @@ h2{margin:.12em 0;font-size:28px;letter-spacing:-.035em}
       </g>
       <text x="50" y="505" font-size="10" fill="#6d7a89">WEST BANK</text><text x="670" y="505" text-anchor="end" font-size="10" fill="#6d7a89">EAST BANK</text>
     </svg>
-  </div>
-
-<!-- DAY 1 -->
-<section id="d1" class="day card">
-  <div class="day-head"><div><div class="day-kicker">DAY 01 · 09/14</div><h2>抵達峴港 → 越式洗頭 / Spa 初體驗 → PPA 部門聚餐</h2></div></div>
-  <div class="timeline">
-    <div class="stop"><div class="time">14:00</div><div><div class="type">SPA</div><h3>越式洗頭／Spa</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Golden+Lotus+Da+Nang" target="_blank">Golden Lotus</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Lamer+Spa+Da+Nang" target="_blank">Lamer Spa</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Sum+Spa+Da+Nang" target="_blank">Sum Spa</a></div></div><span class="zone-tag zone-E">E</span></div>
-    <div class="stop"><div class="time">18:00</div><div><div class="type">DINNER</div><h3>PPA 部門聚餐</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Moc+Quan+Seafood+Da+Nang%2C+26+To+Hien+Thanh" target="_blank">Moc Quan Seafood</a></div></div><span class="zone-tag zone-E">E</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>BAR · E</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Firebirds+Da+Nang" target="_blank">Firebirds</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=ONE+bar+Da+Nang" target="_blank">ONE bar</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Zotopia+Da+Nang" target="_blank">Zotopia</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=YOKO+Da+Nang+bar" target="_blank">YOKO</a></div></div><span class="zone-tag zone-E">E</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>BAR · F</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Bar+Flow+Da+Nang" target="_blank">Bar Flow</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=IDLE+place+Da+Nang" target="_blank">IDLE place</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Black+Wolf+Da+Nang" target="_blank">Black Wolf</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Koto+Club+Da+Nang" target="_blank">Koto Club</a></div></div><span class="zone-tag zone-E">F</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>BAR · H</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Ciela+Sky+Bar+Da+Nang" target="_blank">Ciela Sky Bar</a></div></div><span class="zone-tag zone-E">H</span></div>
-  </div>
-</section>
-
-<!-- DAY 2 -->
-<section id="d2" class="day card">
-  <div class="day-head"><div><div class="day-kicker">DAY 02 · 09/15</div><h2>海灘 → 咖啡巡禮 → 酒吧巡禮</h2></div></div>
-  <div class="timeline">
-    <div class="stop"><div class="time">13:00</div><div><div class="type">VIEW</div><h3>My Khe Beach</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=My+Khe+Beach+Da+Nang" target="_blank">My Khe Beach</a></div></div><span class="zone-tag zone-E">E</span></div>
-    <div class="stop"><div class="time">14:30</div><div><div class="type">Cafe</div><h3>MAY COFFEE</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=MAY+COFFEE+Da+Nang" target="_blank">MAY COFFEE</a></div></div><span class="zone-tag zone-E">E</span></div>
-    <div class="stop"><div class="time">15:30</div><div><div class="type">Cafe</div><h3>Vietnamese Coffee</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=XLIII+Specialty+Da+Nang" target="_blank">XLIII Specialty</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Puna+Specialty+Da+Nang" target="_blank">Puna Specialty</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=The+Cups+Coffee+Da+Nang" target="_blank">The Cups</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Nirva+Coffee+Da+Nang" target="_blank">Nirva</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Passion+Coffee+Da+Nang" target="_blank">Passion</a></div></div><span class="zone-tag zone-G">G</span></div>
-    <div class="stop"><div class="time">18:00</div><div><div class="type">DINNER</div><h3>Vietnamese Cuisine</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Daily+Cuisine+Da+Nang" target="_blank">Vietnam Daily Cuisine</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Epic+Vietnamese+Bistro+Da+Nang" target="_blank">Epic Vietnamese Bistro</a></div></div><span class="zone-tag zone-G">G</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">DINNER</div><h3>Foreign Cuisine</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=The+Nomad+Kitchen+Da+Nang" target="_blank">The Nomad Kitchen</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Little+Georgia+Da+Nang" target="_blank">Little Georgia</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Trattoria+da+Stefano+Da+Nang" target="_blank">Trattoria da Stefano</a></div></div><span class="zone-tag zone-G">G</span></div>
-    <div class="stop"><div class="time">20:00</div><div><div class="type">HEAD SPA</div><h3>LUXURY BARBER</h3><div class="options"><a class="place" href="https://www.google.com/maps/place/LUXURY+%EC%9D%B4%EB%B0%9C%EC%86%8C+%E9%AB%98%E7%AB%AF%E8%B6%8A%E5%8D%97%E5%B8%9D%E7%8E%8B%E6%B4%97%E5%A4%B4/@16.0421712,108.2455885,16z/data=!3m1!4b1!4m6!3m5!1s0x314217ea0815c4e1:0xbc31d8866e397ba3!8m2!3d16.0421712!4d108.2481634!16s%2Fg%2F11ycsqgc6y" target="_blank">LUXURY Spa</a></div></div><span class="zone-tag zone-G">G</span></div>
-    <div class="stop"><div class="time">22:00</div><div><div class="type">BAR</div><h3>An Thuong Bar</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Ket+Fai+Da+Nang" target="_blank">Ket Fai</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Section+30+Da+Nang" target="_blank">Section 30</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=SAGA+Da+Nang+bar" target="_blank">SAGA</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Tipsy+Night+Bar+Da+Nang" target="_blank">Tipsy Night Bar</a></div></div><span class="zone-tag zone-G">G</span></div>
+    <div class="legend">
+      <div><span class="key zone-A">A</span>西岸・韓江橋以北<small>LUK LAK、Madame Lân、Bunny Bar、New Phương Đông</small></div>
+      <div><span class="key zone-H">H</span>東岸・韓江橋以北<small>Vincom Plaza、Be Man、Ciela Sky Bar</small></div>
+      <div><span class="key zone-B">B</span>西岸・韓江橋～龍橋<small>漢市場、Pizza 4P’s、大教堂、占婆博物館、Bạch Đằng、ON! Cocktail</small></div>
+      <div><span class="key zone-E">E</span>東岸・韓江橋～龍橋<small>美溪海灘、MAY COFFEE、Mộc Quán、Brilliant Seafood、海灘酒吧、Fatfish</small></div>
+      <div class="empty"><span class="key zone-C">C</span>西岸・龍橋～陳氏理橋<small>目前沒有行程落在這一區</small></div>
+      <div><span class="key zone-F">F</span>東岸・龍橋～陳氏理橋<small>Bếp Cuốn、山茶夜市、龍橋、Bar Flow 一帶酒吧</small></div>
+      <div class="empty"><span class="key zone-D">D</span>西岸・陳氏理橋以南<small>目前沒有行程落在這一區</small></div>
+      <div><span class="key zone-G">G</span>東岸・陳氏理橋以南<small>An Thượng 一帶咖啡、餐廳、LUXURY、酒吧</small></div>
+    </div>
+    <div class="notes"><b>怎麼看｜</b>行程每一項右邊的色塊就是它的所在區域，點一下會跳回這張圖。同一區的項目可以串在一起走，跨區則需要過橋或沿江移動。</div>
   </div>
 </section>
 
-<!-- DAY 3 -->
-<section id="d3" class="day card">
-  <div class="day-head"><div><div class="day-kicker">DAY 03 · 09/16</div><h2>漢市場 → 峴港市中心 → PP 公司聚餐</h2></div><div class="day-zone">B → E</div></div>
-  <div class="timeline">
-    <div class="stop"><div class="time">10:00</div><div><div class="type">SPOT</div><h3>Han Market</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Han+Market+Da+Nang%2C+119+Tran+Phu" target="_blank">Han Market</a></div></div><span class="zone-tag zone-B">B</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">CAFE</div><h3>Vietnamese Coffee</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Me+Coffee+Da+Nang" target="_blank">Me Coffee</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Trinh+Ca+Phe+Da+Nang" target="_blank">Trinh ca phe</a></div></div><span class="zone-tag zone-B">B</span></div>
-    <div class="stop"><div class="time">13:00</div><div><div class="type">LUNCH</div><h3>Pizza 4P’s</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Pizza+4Ps+Hoang+Van+Thu+Da+Nang" target="_blank">Pizza 4P’s</a></div></div><span class="zone-tag zone-B">B</span></div>
-    <div class="stop"><div class="time">14:30</div><div><div class="type">SPOT</div><h3>Da Nang Cathedral</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Da+Nang+Cathedral+156+Tran+Phu" target="_blank">Da Nang Cathedral</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Bach+Dang+Street+Da+Nang" target="_blank">Bạch Đằng Street Walking</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Da+Nang+Museum+of+Cham+Sculpture" target="_blank">Museum</a></div></div><span class="zone-tag zone-B">B</span></div>
-    <div class="stop"><div class="time">15:30</div><div><div class="type">CAFE / SPA</div><h3>Relax</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=The+Local+Beans+Da+Nang" target="_blank">The Local Beans</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Golden+Lotus+Oriental+Organic+Spa+Da+Nang" target="_blank">Golden Lotus</a></div></div><span class="zone-tag zone-B">B</span></div>
-    <div class="stop"><div class="time">18:00</div><div><div class="type">DINNER</div><h3>PP 公司聚餐</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Brilliant+Seafood+178+Ho+Nghinh+Da+Nang" target="_blank">Brilliant Seafood</a></div></div><span class="zone-tag zone-E">E</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>Bar - Beach</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=The+Roof+Da+Nang" target="_blank">The Roof</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Lounge+Beach+Da+Nang" target="_blank">Lounge Beach</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Harbour+Da+Nang+bar" target="_blank">Harbour</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Esco+Beach+Da+Nang" target="_blank">Esco</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Chicland+Da+Nang" target="_blank">Chicland</a></div></div><span class="zone-tag zone-E">E</span></div>
+<section class="day" id="optional">
+  <div class="dayhead">
+    <div class="daykicker">OPTIONAL</div>
+    <div class="daytitle">備案行程</div>
+    <div class="theme">🎲 沒有綁定日期與時間的口袋名單，依當天心情與所在區域挑</div>
+  </div>
+  <div class="daybody">
+    <div class="timeline">
+      <div class="row"><div class="time z zone-A">A</div><div class="event"><div class="type">RESTAURANT</div><b>餐廳備案</b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=LUK+LAK+Da+Nang">📍 LUK LAK</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Madame+Lan+Da+Nang">📍 Nhà hàng Madame Lân</a></div></div></div>
+      <div class="row"><div class="time z zone-A">A</div><div class="event"><div class="type">BAR</div><b>Bar · A</b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bunny+Bar+Da+Nang">📍 Bunny Bar</a></div></div></div>
+      <div class="row"><div class="time z zone-A">A</div><div class="event"><div class="type">FUN</div><b>Club · A</b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=New+Phuong+Dong+Da+Nang">📍 New Phương Đông</a></div></div></div>
+      <div class="row"><div class="time z zone-B">B</div><div class="event"><div class="type">BAR</div><b>Bar · B</b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ON+Cocktail+Da+Nang">📍 ON! Cocktail</a></div></div></div>
+      <div class="row"><div class="time z zone-E">E</div><div class="event"><div class="type">RESTAURANT</div><b>餐廳備案</b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Fatfish+Da+Nang">📍 Fatfish</a></div></div></div>
+      <div class="row"><div class="time z zone-F">F</div><div class="event"><div class="type">SOFT NIGHT</div><b>夜市／龍橋</b><div class="links"><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Son+Tra+Night+Market+Da+Nang">📍 Chợ Đêm Sơn Trà</a><a class="link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Dragon+Bridge+Da+Nang">📍 Dragon Bridge</a></div></div></div>
+    </div>
+    <div class="notes"><b>小提醒｜</b>這一區的左欄是所在區域而不是時間，因為備案本來就沒有排定時段；想插進哪一天，找同區域的行程接上去最順。</div>
   </div>
 </section>
 
-<!-- DAY 4 -->
-<section id="d4" class="day card">
-  <div class="day-head"><div><div class="day-kicker">DAY 04 · 09/17</div><h2>Shopping</h2></div><div class="day-zone">H → __ → F</div></div>
-  <div class="timeline">
-    <div class="stop"><div class="time">10:00</div><div><div class="type">SPOT</div><h3>Vincom Plaza</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Vincom+Plaza+Da+Nang%2C+910A+Ngo+Quyen" target="_blank">Vincom Plaza</a></div></div><span class="zone-tag zone-H">H</span></div>
-    <div class="stop"><div class="time">12:00</div><div><div class="type">LUNCH</div><h3>Be Man Da Nang Seafood</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Be+Man+Da+Nang+seafood" target="_blank">Be Man</a></div></div><span class="zone-tag zone-H">H</span></div>
-    <div class="stop"><div class="time">18:00</div><div><div class="type">DINNER</div><h3>Bếp Cuốn Đà Nẵng</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Bep+Cuon+Da+Nang%2C+31-33+Tran+Bach+Dang" target="_blank">Bếp Cuốn Đà Nẵng</a></div></div><span class="zone-tag zone-F">F</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>Bar · E</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Firebirds+Da+Nang" target="_blank">Firebirds</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=ONE+bar+Da+Nang" target="_blank">ONE bar</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Zotopia+Da+Nang" target="_blank">Zotopia</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=YOKO+Da+Nang+bar" target="_blank">YOKO</a></div></div><span class="zone-tag zone-F">F</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>Bar · F</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Bar+Flow+Da+Nang" target="_blank">Bar Flow</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=IDLE+place+Da+Nang" target="_blank">IDLE place</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Black+Wolf+Da+Nang" target="_blank">Black Wolf</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Koto+Club+Da+Nang" target="_blank">Koto Club</a></div></div><span class="zone-tag zone-F">F</span></div>
-  </div>
-</section>
-
-<!-- OPTIONAL -->
-<section id="optional" class="optional card">
-  <div class="day-head"><div><div class="day-kicker">OPTIONAL</div><h2>備案行程</h2></div></div>
-  <div class="timeline">
-    <div class="stop"><div class="time"></div><div><div class="type">RESTURANT</div><h3>餐廳備案</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=LUK+LAK+Da+Nang" target="_blank">LUK LAK</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Madame+Lan+Da+Nang" target="_blank">Nhà hàng Madame Lân</a></div></div><span class="zone-tag zone-A">A</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>Bar · A</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Bunny+Bar+Da+Nang" target="_blank">Bunny Bar</a></div></div><span class="zone-tag zone-A">A</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">FUN</div><h3>Club · A</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=New+Phuong+Dong+Da+Nang" target="_blank">New Phương Đông</a></div></div><span class="zone-tag zone-A">A</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">SOFT NIGHT</div><h3>夜市／龍橋</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Son+Tra+Night+Market+Da+Nang" target="_blank">Chợ Đêm Sơn Trà</a><a class="place" href="https://www.google.com/maps/search/?api=1&query=Dragon+Bridge+Da+Nang" target="_blank">Dragon Bridge</a></div></div><span class="zone-tag zone-F">F</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">BAR</div><h3>Bar · B</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=ON+Cocktail+Da+Nang" target="_blank">ON! Cocktail</a></div></div><span class="zone-tag zone-B">B</span></div>
-    <div class="stop"><div class="time"></div><div><div class="type">RESTAURANT</div><h3>餐廳備案</h3><div class="options"><a class="place" href="https://www.google.com/maps/search/?api=1&query=Fatfish+Da+Nang" target="_blank">Fatfish</a></div></div><span class="zone-tag zone-E">E</span></div>
-  </div>
-</section>
-
+<div class="footer">行程以目前提供版本整理；餐廳、Spa、酒吧多為備選清單，實際前往店家與時間以當天狀況為準。</div>
 </div>
 </body>
 </html>
